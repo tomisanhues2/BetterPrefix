@@ -1,0 +1,28 @@
+CONFIG-VERSION: 1 # DO NOT CHANGE THIS VALUE
+
+#     ____  ______ _______ _______ ______ _____    _____  _____  ______ ______ _______   __
+#     |  _ \|  ____|__   __|__   __|  ____|  __ \  |  __ \|  __ \|  ____|  ____|_   _\ \ / /
+#     | |_) | |__     | |     | |  | |__  | |__) | | |__) | |__) | |__  | |__    | |  \ V /
+#     |  _ <|  __|    | |     | |  |  __| |  _  /  |  ___/|  _  /|  __| |  __|   | |   > <
+#     | |_) | |____   | |     | |  | |____| | \ \  | |    | | \ \| |____| |     _| |_ / . \
+#     |____/|______|  |_|     |_|  |______|_|  \_\ |_|    |_|  \_\______|_|    |_____/_/ \_\
+
+# Placeholders:
+# {MESSAGE} - the chat message
+# {NAME} - the player's name
+# {PREFIX} - the player's highest priority prefix
+# {SUFFIX} - the player's highest priority suffix
+# Any PAPI placeholder in %placeholder% format
+#CHANGE THE CHAT FORMAT BELOW. WILL AUTOMATICALLY APPLY TO ALL ROLES. PAPI SUPPORT!
+
+#NAMETAG_FORMAT: "{PREFIX} {NAME} {SUFFIX}" # The tab format. PAPI support! Format will always be this, but you can change the prefix and suffix values
+NAMETAG_FORMAT_PREFIX: "{PREFIX}" # The nametag format. PAPI support!
+NAMETAG_FORMAT_SUFFIX: "{SUFFIX}"
+NAMETAG_ENABLED: true # Enable or disable nametag formatting
+
+CHAT_FORMAT: "{PREFIX} {NAME} {SUFFIX}&e&l» &7{MESSAGE}"
+CHAT_ENABLED: true # Enable or disable chat formatting
+
+
+TAB_FORMAT: "{PREFIX} {NAME} {SUFFIX}"
+TAB_ENABLED: true # Enable or disable tab formatting

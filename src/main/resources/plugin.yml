@@ -1,0 +1,17 @@
+name: BetterPrefix
+version: '${project.version}'
+main: me.tomisanhues.betterprefix.BetterPrefix
+api-version: 1.15
+prefix: BetterPrefix
+depend: [ LuckPerms ]
+softdepend: [ PlaceholderAPI ]
+authors: [ Tomisanhues2 ]
+description: Best prefix plugin! Simple
+commands:
+  bp:
+    description: BetterPrefix command
+    usage: /bp <reload>
+    aliases: [betterprefix]
+    permission: betterprefix.reload
+    permission-message: &cYou do not have permission to use this command!
+    default: false
