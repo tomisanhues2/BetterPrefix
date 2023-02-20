@@ -6,10 +6,10 @@
 
     <groupId>me.tomisanhues</groupId>
     <artifactId>betterprefix</artifactId>
-    <version>5.0</version>
+    <version>5.1</version>
     <packaging>jar</packaging>
 
-    <name>Betterprefix</name>
+    <name>BetterPrefix</name>
 
     <description>Best prefix plugin! Simple</description>
     <properties>
@@ -24,8 +24,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>9</source>
+                    <target>9</target>
                 </configuration>
             </plugin>
             <plugin>
