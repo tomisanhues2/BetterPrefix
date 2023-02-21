@@ -92,13 +92,6 @@ public final class BetterPrefix extends JavaPlugin {
 
             }*/
         //If the config version is not found, it is most likely the first time the plugin is being run. Set the config version to 1
-
-        if (configVersion == -1) {
-            getLogger().log(Level.WARNING, "Config version is outdated. Resetting config version to 1");
-            getConfig().load(new InputStreamReader(getResource("config.yml")));
-            getConfig().save(new File(getDataFolder(), "config.yml"));
-
-        }
     }
 
     public void getConfigFile() {
