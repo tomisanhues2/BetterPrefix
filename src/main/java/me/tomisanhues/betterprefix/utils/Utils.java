@@ -35,18 +35,18 @@ public class Utils {
 
     public static String setPlaceholders(Player player, String format) {
         CachedMetaData metaData = BetterPrefix.getApi().getPlayerAdapter(Player.class).getMetaData(player);
-        format = format.replace("{PREFIX}", metaData.getPrefix())
+        format = format.replace("{PREFIX}", (metaData.getPrefix() != null) ? metaData.getPrefix() : "")
                 .replace("{NAME}", player.getName())
-                .replace("{SUFFIX}", metaData.getSuffix());
+                .replace("{SUFFIX}", (metaData.getSuffix() != null) ? metaData.getSuffix() : "");
 
         return setPlaceholderAPIPlaceholders(player, format);
     }
 
     public static String setPlaceholders(Player player, String format, String message) {
         CachedMetaData metaData = BetterPrefix.getApi().getPlayerAdapter(Player.class).getMetaData(player);
-        format = format.replace("{PREFIX}", metaData.getPrefix())
+        format = format.replace("{PREFIX}", (metaData.getPrefix() != null) ? metaData.getPrefix() : "")
                 .replace("{NAME}", player.getName())
-                .replace("{SUFFIX}", metaData.getSuffix())
+                .replace("{SUFFIX}", (metaData.getSuffix() != null) ? metaData.getSuffix() : "")
                 .replace("{MESSAGE}", message);
 
         return setPlaceholderAPIPlaceholders(player, format);

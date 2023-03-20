@@ -6,7 +6,7 @@
 
     <groupId>me.tomisanhues</groupId>
     <artifactId>betterprefix</artifactId>
-    <version>5.1</version>
+    <version>5.3</version>
     <packaging>jar</packaging>
 
     <name>BetterPrefix</name>

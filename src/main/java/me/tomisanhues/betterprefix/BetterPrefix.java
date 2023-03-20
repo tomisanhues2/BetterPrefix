@@ -81,17 +81,10 @@ public final class BetterPrefix extends JavaPlugin {
     }
 
     private void setConfigFile() throws IOException, InvalidConfigurationException {
+        saveDefaultConfig();
+        saveConfig();
         config = getConfig();
-        int configVersion = config.getKeys(false).contains("CONFIG_VERSION") ? config.getInt("CONFIG_VERSION") : -1;
-        //Make a switch to check what version the config is currently at. If it is not the latest version, update to the next version
-/*            switch (configVersion) {
-                case 1:
-                    break;
-                default:
-                    break;
 
-            }*/
-        //If the config version is not found, it is most likely the first time the plugin is being run. Set the config version to 1
     }
 
     public void getConfigFile() {
