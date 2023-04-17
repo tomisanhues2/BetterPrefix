@@ -13,5 +13,5 @@ commands:
     usage: /bp <reload>
     aliases: [betterprefix]
     permission: betterprefix.reload
-    permission-message: &cYou do not have permission to use this command!
+    permission-message: '&cYou do not have permission to use this command!'
     default: false

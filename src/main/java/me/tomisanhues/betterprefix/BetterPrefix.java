@@ -1,9 +1,9 @@
 package me.tomisanhues.betterprefix;
 
 import me.tomisanhues.betterprefix.commands.CommandHandler;
+import me.tomisanhues.betterprefix.config.Config;
 import me.tomisanhues.betterprefix.events.Events;
 import me.tomisanhues.betterprefix.metrics.Metrics;
-import me.tomisanhues.betterprefix.scoreboard.ScoreboardHandler;
 import me.tomisanhues.betterprefix.utils.Configuration;
 import me.tomisanhues.betterprefix.tasks.PrefixTask;
 import me.tomisanhues.betterprefix.utils.UpdateChecker;
@@ -24,13 +24,13 @@ import java.util.logging.Level;
 
 public final class BetterPrefix extends JavaPlugin {
 
-    FileConfiguration config;
-    ScoreboardHandler scoreboardHandler;
     Utils utils;
 
     private static LuckPerms api;
 
     private BukkitTask task;
+
+    public Config config;
 
     @Override
     public void onEnable() {
@@ -44,15 +44,11 @@ public final class BetterPrefix extends JavaPlugin {
                 getLogger().severe(String.format("Current version: %s - New version: %s", this.getDescription().getVersion(), version));
             }
         });
+        config = new Config(this);
 
         utils = new Utils(this);
         getServer().getPluginCommand("bp").setExecutor(new CommandHandler(this));
         getServer().getPluginManager().registerEvents(new Events(this), this);
-        try {
-            setConfigFile();
-        } catch (IOException | InvalidConfigurationException e) {
-            e.printStackTrace();
-        }
         getConfigFile();
 
         Bukkit.getScheduler().runTask(this, () -> {
@@ -80,23 +76,16 @@ public final class BetterPrefix extends JavaPlugin {
         return api;
     }
 
-    private void setConfigFile() throws IOException, InvalidConfigurationException {
-        saveDefaultConfig();
-        saveConfig();
-        config = getConfig();
-
-    }
-
     public void getConfigFile() {
-        Configuration.setChatEnabled(config.getBoolean("CHAT_ENABLED"));
-        Configuration.setNametagEnabled(config.getBoolean("NAMETAG_ENABLED"));
-        Configuration.setTabEnabled(config.getBoolean("TAB_ENABLED"));
+        Configuration.setChatEnabled(config.getConfig().getBoolean("CHAT_ENABLED"));
+        Configuration.setNametagEnabled(config.getConfig().getBoolean("NAMETAG_ENABLED"));
+        Configuration.setTabEnabled(config.getConfig().getBoolean("TAB_ENABLED"));
 
 
-        Configuration.setChatFormat(config.getString("CHAT_FORMAT"));
-        Configuration.setTabFormat(config.getString("TAB_FORMAT"));
-        Configuration.setNametagFormatPrefix(config.getString("NAMETAG_FORMAT_PREFIX"));
-        Configuration.setNametagFormatSuffix(config.getString("NAMETAG_FORMAT_SUFFIX"));
+        Configuration.setChatFormat(config.getConfig().getString("CHAT_FORMAT"));
+        Configuration.setTabFormat(config.getConfig().getString("TAB_FORMAT"));
+        Configuration.setNametagFormatPrefix(config.getConfig().getString("NAMETAG_FORMAT_PREFIX"));
+        Configuration.setNametagFormatSuffix(config.getConfig().getString("NAMETAG_FORMAT_SUFFIX"));
     }
 
     public BukkitTask getTask() {

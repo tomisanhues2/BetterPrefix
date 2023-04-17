@@ -36,6 +36,7 @@ public class NametagChanger {
                 scoreboard.registerNewTeam(player.getName());
                 team = scoreboard.getTeam(player.getName());
                 team.setPrefix(Color(prefix));
+                //todo: Add support for name directly
                 team.setSuffix(Color(suffix));
                 team.setNameTagVisibility(NameTagVisibility.ALWAYS);
                 team.addPlayer(player);

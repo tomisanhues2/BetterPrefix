@@ -24,6 +24,7 @@ public class CommandHandler implements TabExecutor {
             return true;
         }
         if (args.length == 1 && "reload".equals(args[0])) {
+            betterprefix.config.reload();
             betterprefix.getConfigFile();
             betterprefix.restartTask();
             sender.sendMessage("The config has been reloaded.");
@@ -39,6 +40,6 @@ public class CommandHandler implements TabExecutor {
             return List.of("reload");
         }
 
-        return null;
+        return List.of();
     }
 }
