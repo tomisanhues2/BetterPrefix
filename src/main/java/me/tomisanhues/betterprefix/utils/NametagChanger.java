@@ -37,6 +37,10 @@ public class NametagChanger {
                 team = scoreboard.getTeam(player.getName());
                 team.setPrefix(Color(prefix));
                 //todo: Add support for name directly
+                ChatColor lastColor = ChatColor.getByChar(ChatColor.getLastColors(prefix).charAt(1));
+                if (lastColor != null) {
+                    team.setColor(lastColor);
+                }
                 team.setSuffix(Color(suffix));
                 team.setNameTagVisibility(NameTagVisibility.ALWAYS);
                 team.addPlayer(player);
